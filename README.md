@@ -2,7 +2,7 @@
 
 Sitio corporativo de **Oceanic Trade & Investment** (grupooceanic.com) — versión preliminar en revisión.
 
-**Ver el sitio:** [GitHub Pages](https://USUARIO.github.io/OCEANIC-WEBSITE/) *(se activa en Settings → Pages)*
+**Ver el sitio:** https://anyelosilva-stack.github.io/OCEANIC-WEBSITE/
 
 ## Estructura
 
