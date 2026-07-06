@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contáctanos — Conectar con Grupo Oceanic</title>
+<meta name="description" content="Cada trimestre incorporamos un número limitado de proyectos. Comparta su visión, objetivos, alcance e inversión estimada; un director de cuenta se comunicará personalmente con usted.">
+<link rel="icon" type="image/png" href="assets/img/brand/oceanic-icono.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Instrument+Sans:wght@500;600;700&family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main" data-i18n="a11y.skip">Ir al contenido</a>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Grupo Oceanic — Inicio">
+      <img src="assets/img/brand/oceanic-h-t.png" alt="Oceanic Trade &amp; Investment">
+    </a>
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a href="index.html" data-i18n="nav.home">Grupo Oceanic</a>
+      <a href="holding.html" data-i18n="nav.holding">Holding</a>
+      <a href="supply-chain.html" data-i18n="nav.sc">Supply Chain</a>
+      <a href="casos-de-exito.html" data-i18n="nav.cases">Casos de Éxito</a>
+      <a href="contactanos.html" class="is-active" data-i18n="nav.contact">Contáctanos</a>
+    </nav>
+    <a class="btn nav-cta" href="#form">Presentar proyecto</a>
+    <button class="nav-burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <a href="index.html" data-i18n="nav.home">Grupo Oceanic</a>
+  <a href="holding.html" data-i18n="nav.holding">Holding</a>
+  <a href="supply-chain.html" data-i18n="nav.sc">Supply Chain</a>
+  <a href="casos-de-exito.html" data-i18n="nav.cases">Casos de Éxito</a>
+  <a href="contactanos.html" class="is-active" data-i18n="nav.contact">Contáctanos</a>
+</div>
+
+<main id="main">
+
+<!-- ══════════ CABECERA (skyline de fondo) ══════════ -->
+<section class="page-hero" style="min-height: 62svh;">
+  <div style="position: absolute; inset: 0; z-index: 0;">
+    <img src="assets/img/gen/shanghai.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.55;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,7,8,0.66), rgba(5,7,8,0.28) 45%, var(--bg-0) 97%);"></div>
+  </div>
+  <div class="container" style="position: relative; z-index: 1;">
+    <div class="page-hero-card glass">
+      <p class="eyebrow">Contáctanos</p>
+      <h1 class="display" style="margin-top: 14px;">Conectar con Grupo Oceanic.</h1>
+      <p class="lead">Cada trimestre incorporamos un número limitado de proyectos para asegurar que cada cliente reciba la atención estratégica y la calidad que merece. Comparta su visión, objetivos, alcance e inversión estimada; un director de cuenta se comunicará personalmente con usted.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FORMULARIO + OFICINAS ══════════ -->
+<section class="section" id="form" style="padding-top: clamp(40px, 5vw, 72px);">
+  <div class="container">
+    <div class="contact-wrap">
+
+      <form class="form" id="oceanic-form" novalidate>
+        <div class="form-fields" style="display: grid; gap: 22px;">
+          <div class="form-row">
+            <div class="field">
+              <label for="f-name"><span data-i18n="ct.fName">Nombre completo</span> <span class="req">*</span></label>
+              <input id="f-name" name="nombre" type="text" autocomplete="name" required>
+              <span class="error" data-err></span>
+            </div>
+            <div class="field">
+              <label for="f-role"><span data-i18n="ct.fRole">Cargo</span> <span class="req">*</span></label>
+              <input id="f-role" name="cargo" type="text" autocomplete="organization-title" required>
+              <span class="error" data-err></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="f-company"><span data-i18n="ct.fCompany">Empresa</span> <span class="req">*</span></label>
+              <input id="f-company" name="empresa" type="text" autocomplete="organization" required>
+              <span class="error" data-err></span>
+            </div>
+            <div class="field">
+              <label for="f-web" data-i18n="ct.fWeb">Sitio web o perfil de la empresa</label>
+              <input id="f-web" name="web" type="text" inputmode="url" placeholder="https://" autocomplete="url">
+              <span class="hint" data-i18n="ct.fWebHint">Opcional — nos permite conocer su organización</span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="f-country"><span data-i18n="ct.fCountry">País</span> <span class="req">*</span></label>
+              <select id="f-country" name="pais" required></select>
+              <span class="error" data-err></span>
+            </div>
+            <div class="field">
+              <label for="f-email"><span data-i18n="ct.fEmail">Correo corporativo</span> <span class="req">*</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required>
+              <span class="error" data-err></span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-wa"><span data-i18n="ct.fWa">WhatsApp</span> <span class="req">*</span></label>
+            <input id="f-wa" name="whatsapp" type="tel" inputmode="tel" placeholder="+57 300 000 0000" autocomplete="tel" required>
+            <span class="hint" data-i18n="ct.fWaHint">Incluya el indicativo de su país</span>
+            <span class="error" data-err></span>
+          </div>
+
+          <div class="field">
+            <span style="font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);"><span data-i18n="ct.fOrg">Tipo de organización</span> <span class="req">*</span></span>
+            <div class="chips" role="radiogroup" data-group="org">
+              <input type="radio" name="org" id="org-1" value="Empresa consolidada"><label for="org-1" data-i18n="ct.org1">Empresa consolidada</label>
+              <input type="radio" name="org" id="org-2" value="Marca en crecimiento"><label for="org-2" data-i18n="ct.org2">Marca en crecimiento</label>
+              <input type="radio" name="org" id="org-3" value="Nuevo proyecto"><label for="org-3" data-i18n="ct.org3">Nuevo proyecto</label>
+            </div>
+            <span class="error" data-err></span>
+          </div>
+
+          <div class="field">
+            <span style="font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);"><span data-i18n="ct.fGoal">Qué busca con el grupo</span> <span class="req">*</span></span>
+            <div class="chips" data-group="goal">
+              <input type="checkbox" name="goal" id="goal-1" value="Sourcing y desarrollo de proveedores"><label for="goal-1" data-i18n="ct.goal1">Sourcing y desarrollo de proveedores</label>
+              <input type="checkbox" name="goal" id="goal-2" value="Desarrollo de marca y producto"><label for="goal-2" data-i18n="ct.goal2">Desarrollo de marca y producto</label>
+              <input type="checkbox" name="goal" id="goal-3" value="Gestión integral de la cadena de suministro"><label for="goal-3" data-i18n="ct.goal3">Gestión integral de la cadena de suministro</label>
+              <input type="checkbox" name="goal" id="goal-4" value="Inversión o alianza estratégica"><label for="goal-4" data-i18n="ct.goal4">Inversión o alianza estratégica</label>
+            </div>
+            <span class="error" data-err></span>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="f-cat" data-i18n="ct.fCat">Categoría de producto</label>
+              <select id="f-cat" name="categoria">
+                <option value="" selected data-i18n="ct.opt">Seleccionar…</option>
+                <option>Insumos y equipos médicos</option>
+                <option>Iluminación y energía solar</option>
+                <option>Decoración y hogar</option>
+                <option>Ocio y entretenimiento</option>
+                <option>Textil y materia prima</option>
+                <option>Materiales de construcción</option>
+                <option>Partes industriales y maquinaria</option>
+                <option>Químicos y agricultura</option>
+                <option>Oficina y escolar</option>
+                <option>Otra</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-inv"><span data-i18n="ct.fInv">Inversión estimada del proyecto (USD)</span> <span class="req">*</span></label>
+              <select id="f-inv" name="inversion" required>
+                <option value="" selected data-i18n="ct.opt">Seleccionar…</option>
+                <option value="&lt; USD 20.000">&lt; USD 20.000</option>
+                <option value="USD 20.000 – 50.000">USD 20.000 – 50.000</option>
+                <option value="USD 50.000 – 100.000">USD 50.000 – 100.000</option>
+                <option value="USD 100.000 – 500.000">USD 100.000 – 500.000</option>
+                <option value="+ USD 500.000">+ USD 500.000</option>
+                <option value="Prefiero indicarlo en la llamada" data-i18n="ct.invCall">Prefiero indicarlo en la llamada</option>
+              </select>
+              <span class="error" data-err></span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-time" data-i18n="ct.fTime">Plazo previsto de ejecución</label>
+            <select id="f-time" name="plazo">
+              <option value="" selected data-i18n="ct.opt">Seleccionar…</option>
+              <option value="Inmediato" data-i18n="ct.time1">Inmediato</option>
+              <option value="1–3 meses" data-i18n="ct.time2">1–3 meses</option>
+              <option value="3–6 meses" data-i18n="ct.time3">3–6 meses</option>
+              <option value="Aún explorando" data-i18n="ct.time4">Aún explorando</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="f-desc"><span data-i18n="ct.fDesc">Describa su proyecto</span> <span class="req">*</span></label>
+            <textarea id="f-desc" name="descripcion" required data-i18n-ph="ct.phDesc" placeholder="Objetivos, productos, volúmenes estimados, mercados de destino y cualquier información relevante."></textarea>
+            <span class="error" data-err></span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-solid btn-submit" style="justify-self: start;"><span data-i18n="nav.cta">Conectar con Grupo Oceanic</span> <span class="arrow">→</span></button>
+
+        <div class="form-success" role="status">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.6 2.6L16 9.5"/></svg></div>
+          <h3 class="title-md" data-i18n="ct.okT">Gracias por presentar su proyecto.</h3>
+          <p class="prose" style="margin: 14px auto 0; max-width: 44ch;" data-i18n="ct.okP">Nuestro equipo lo evaluará y un director de cuenta lo contactará en los próximos días.</p>
+        </div>
+      </form>
+
+      <aside class="contact-aside">
+        <div>
+          <h2 class="title-lg" data-i18n="ct.officesT">Oficinas</h2>
+          <div style="margin-top: 28px; display: grid; gap: 24px;">
+            <div class="office">
+              <p class="city">Hong Kong <span class="country">China</span></p>
+              <p class="addr">Office "D", 16/F One Capital Place, 18 Luard Road, WanChai</p>
+            </div>
+            <div class="office">
+              <p class="city">Shanghai <span class="country">China</span></p>
+              <p class="addr">Suite 703A, L3-B Building, Hongqiao World Center</p>
+            </div>
+            <div class="office">
+              <p class="city">Yiwu <span class="country" style="color: var(--aqua);" data-i18n="ct.hq">Oficina principal</span></p>
+              <p class="addr">Suite 3012, Magnificent Building, 699 Chengbei Rd, World Trade Centre, Zhejiang, P.R. China 322000</p>
+            </div>
+            <div class="office" style="border-bottom: 0;">
+              <p class="city">Bogotá <span class="country">Colombia</span></p>
+              <p class="addr">Avenida Calle 82 # 12-22, Oficina 204</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-direct">
+          <h3 class="title-md" data-i18n="ct.directT">Contacto directo</h3>
+          <div style="margin-top: 16px;">
+            <a href="mailto:contacto@grupooceanic.com">
+              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+              contacto@grupooceanic.com
+            </a>
+            <a href="https://wa.me/8618858283272" target="_blank" rel="noopener">
+              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 21l2.1-5.4A8.5 8.5 0 1 1 21 11.5z"/><path d="M9 10c.5 2.5 2.5 4.5 5 5l1.5-1.5 2 1"/></svg></span>
+              WhatsApp +86 188 5828 3272
+            </a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/img/brand/oceanic-s-t.png" alt="Oceanic Trade &amp; Investment">
+        <p data-i18n="footer.tag">Holding corporativo de comercio global e inversión con presencia directa en China.</p>
+        <div class="footer-cscc">
+          <img src="assets/img/brand/cscc-t.png" alt="Sello CSCC">
+          <p>Somos el <strong>CSCC</strong> — Centro de Servicio de Compras para Colombia en China.</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.nav">Navegación</h4>
+        <ul>
+          <li><a href="index.html" data-i18n="nav.home">Grupo Oceanic</a></li>
+          <li><a href="holding.html" data-i18n="nav.holding">Holding</a></li>
+          <li><a href="supply-chain.html" data-i18n="nav.sc">Supply Chain</a></li>
+          <li><a href="casos-de-exito.html" data-i18n="nav.cases">Casos de Éxito</a></li>
+          <li><a href="contactanos.html" data-i18n="nav.contact">Contáctanos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.divisions">Divisiones</h4>
+        <ul>
+          <li><a href="https://fabricadelmundo.com" target="_blank" rel="noopener">Fábrica del Mundo</a></li>
+          <li><a href="holding.html#wankeli">Wankeli 万柯利</a></li>
+        </ul>
+        <h4 style="margin-top: 32px;" data-i18n="footer.contact">Contacto</h4>
+        <ul>
+          <li><a href="mailto:contacto@grupooceanic.com">contacto@grupooceanic.com</a></li>
+          <li><a href="https://wa.me/8618858283272" target="_blank" rel="noopener">WhatsApp +86 188 5828 3272</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.offices">Oficinas</h4>
+        <ul class="footer-offices">
+          <li><span class="city">Hong Kong</span><span class="addr">Office "D", 16/F One Capital Place, 18 Luard Road, WanChai</span></li>
+          <li><span class="city">Shanghai</span><span class="addr">Suite 703A, L3-B Building, Hongqiao World Center</span></li>
+          <li><span class="city">Yiwu, Zhejiang</span><span class="addr">Suite 3012, Magnificent Building, 699 Chengbei Rd, World Trade Centre, 322000</span></li>
+          <li><span class="city">Bogotá</span><span class="addr">Avenida Calle 82 # 12-22, Oficina 204</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Grupo Oceanic · Oceanic Trade &amp; Investment</span>
+      <span><a href="#" data-i18n="footer.terms">Términos</a> &nbsp;·&nbsp; <a href="#" data-i18n="footer.privacy">Privacidad</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="cscc-float" href="holding.html#cscc" aria-label="CSCC — Centro de Servicio de Compras para Colombia en China">
+  <img src="assets/img/brand/cscc-t.png" alt="">
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+/* ── Países (LATAM primero, luego el mundo) ── */
+(function () {
+  var latam = ["Colombia","México","Perú","Chile","Ecuador","Panamá","Guatemala","Costa Rica","República Dominicana","Bolivia","Paraguay","Uruguay","Argentina","Brasil","Venezuela","Honduras","El Salvador","Nicaragua","Puerto Rico","Cuba"];
+  var world = ["Estados Unidos","Canadá","España","Portugal","Francia","Alemania","Italia","Reino Unido","Países Bajos","Suiza","Suecia","Polonia","Turquía","Emiratos Árabes Unidos","Arabia Saudita","Qatar","Omán","Kuwait","Israel","Egipto","Marruecos","Sudáfrica","Nigeria","Kenia","China","Hong Kong","Taiwán","Japón","Corea del Sur","Singapur","Malasia","Indonesia","Filipinas","Vietnam","Tailandia","India","Australia","Nueva Zelanda","Otro país"];
+  var sel = document.getElementById("f-country");
+  var ph = document.createElement("option");
+  ph.value = ""; ph.textContent = "Seleccionar…"; ph.selected = true; ph.setAttribute("data-i18n", "ct.opt");
+  sel.appendChild(ph);
+  latam.concat(world).forEach(function (c) {
+    var o = document.createElement("option"); o.value = c; o.textContent = c; sel.appendChild(o);
+  });
+})();
+
+/* ── Validación + envío a WhatsApp ── */
+(function () {
+  var form = document.getElementById("oceanic-form");
+  var WA = "8618858283272";
+  var MSG = {
+    es: { req: "Este campo es obligatorio.", email: "Ingrese un correo válido.", chips: "Seleccione al menos una opción." },
+    en: { req: "This field is required.", email: "Enter a valid email.", chips: "Select at least one option." }
+  };
+
+  function lang() { return (window.__getLang && window.__getLang()) || "es"; }
+
+  function setErr(field, msg) {
+    field.classList.toggle("has-error", !!msg);
+    var e = field.querySelector("[data-err]");
+    if (e) e.textContent = msg || "";
+  }
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var m = MSG[lang()];
+    var ok = true;
+    var firstBad = null;
+
+    form.querySelectorAll("input[required], select[required], textarea[required]").forEach(function (input) {
+      var field = input.closest(".field");
+      var bad = !input.value.trim();
+      if (!bad && input.type === "email") bad = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value);
+      setErr(field, bad ? (input.type === "email" && input.value ? m.email : m.req) : "");
+      if (bad && !firstBad) firstBad = input;
+      ok = ok && !bad;
+    });
+
+    var orgField = form.querySelector('[data-group="org"]').closest(".field");
+    var orgVal = form.querySelector('input[name="org"]:checked');
+    setErr(orgField, orgVal ? "" : m.chips);
+    if (!orgVal) { ok = false; }
+
+    var goalField = form.querySelector('[data-group="goal"]').closest(".field");
+    var goals = Array.prototype.map.call(form.querySelectorAll('input[name="goal"]:checked'), function (c) { return c.value; });
+    setErr(goalField, goals.length ? "" : m.chips);
+    if (!goals.length) { ok = false; }
+
+    if (!ok) { if (firstBad) firstBad.focus(); return; }
+
+    var v = function (id) { return (document.getElementById(id).value || "—").trim(); };
+    var lines = [
+      "*Nuevo proyecto — grupooceanic.com*",
+      "Nombre: " + v("f-name"),
+      "Cargo: " + v("f-role"),
+      "Empresa: " + v("f-company"),
+      "Web: " + v("f-web"),
+      "País: " + v("f-country"),
+      "Email: " + v("f-email"),
+      "WhatsApp: " + v("f-wa"),
+      "Organización: " + orgVal.value,
+      "Busca: " + goals.join(" · "),
+      "Categoría: " + v("f-cat"),
+      "Inversión: " + v("f-inv"),
+      "Plazo: " + v("f-time"),
+      "Proyecto: " + v("f-desc")
+    ];
+    window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(lines.join("\n")), "_blank", "noopener");
+    form.classList.add("is-sent");
+    form.querySelector(".form-success").scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+})();
+</script>
+</body>
+</html>
