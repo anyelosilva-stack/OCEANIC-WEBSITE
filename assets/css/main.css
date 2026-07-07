@@ -36,7 +36,7 @@
   --radius: 16px;
   --radius-sm: 10px;
   --container: 1140px;
-  --nav-h: 76px;
+  --nav-h: 96px;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --dur: 220ms;
@@ -238,7 +238,7 @@ strong { font-weight: 700; color: var(--paper); }
   border-bottom: 1px solid transparent;
 }
 .nav.is-scrolled {
-  height: 62px;
+  height: 74px;
   background: rgba(5, 7, 8, 0.7);
   -webkit-backdrop-filter: blur(18px) saturate(150%);
   backdrop-filter: blur(18px) saturate(150%);
@@ -249,8 +249,12 @@ strong { font-weight: 700; color: var(--paper); }
   margin-inline: auto;
   display: flex; align-items: center; gap: 28px;
 }
-.nav-logo img { height: 58px; width: auto; transition: height var(--dur) var(--ease-out); }
-.nav.is-scrolled .nav-logo img { height: 46px; }
+.nav-logo img { height: 80px; width: auto; transition: height var(--dur) var(--ease-out); }
+.nav.is-scrolled .nav-logo img { height: 62px; }
+@media (max-width: 640px) {
+  .nav-logo img { height: 58px; }
+  .nav.is-scrolled .nav-logo img { height: 48px; }
+}
 .nav-links { display: flex; gap: 2px; margin-left: auto; }
 .nav-links a {
   font-family: var(--font-display);
@@ -376,10 +380,23 @@ strong { font-weight: 700; color: var(--paper); }
 }
 .qs-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  gap: clamp(32px, 5vw, 80px);
-  align-items: start;
+  justify-items: center;
+  text-align: center;
+  gap: 8px;
+  max-width: 760px;
+  margin-inline: auto;
 }
+.qs-grid .eyebrow { justify-content: center; }
+.qs-grid .eyebrow-line { margin-inline: auto; }
+.qs-grid .prose { margin-inline: auto; margin-top: 22px; }
+
+/* Bloque centrado genérico (Desarrollo de marca, párrafos de cierre) */
+.center-block {
+  text-align: center;
+  display: grid;
+  justify-items: center;
+}
+.center-block .lead, .center-block .prose { margin-inline: auto; }
 .eyebrow-line {
   width: 46px; height: 2px;
   margin-top: 12px;
@@ -621,6 +638,7 @@ strong { font-weight: 700; color: var(--paper); }
 }
 .division-fdm .division-tag { color: var(--fdm-green); }
 .division-wkl .division-tag { color: var(--wkl-gold); }
+.division-wkl .division-logo { height: 118px; } /* el arte del logo WKL trae aire interno: se compensa */
 .division-card p { color: var(--muted); font-size: 14.5px; flex: 1; }
 .division-link {
   margin-top: 24px;
@@ -683,6 +701,22 @@ strong { font-weight: 700; color: var(--paper); }
 .img-band-caption .eyebrow { color: var(--paper); justify-content: center; }
 .img-band-caption .title-lg { margin-top: 8px; text-shadow: 0 4px 30px rgba(0,0,0,0.6); }
 
+/* Banda alta protagonista (Yiwu): imagen enorme, solo el título encima */
+.img-band.band-tall {
+  height: clamp(440px, 82svh, 760px);
+}
+.img-band.band-tall::after {
+  background: linear-gradient(180deg, rgba(5,7,8,0.6), rgba(5,7,8,0.12) 34%, rgba(5,7,8,0.1) 60%, rgba(5,7,8,0.8));
+}
+.band-title-center {
+  position: absolute; inset: 0; z-index: 2;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding-inline: 24px;
+}
+.band-title-center .title-xl { margin-top: 14px; text-shadow: 0 6px 36px rgba(0,0,0,0.7); max-width: 22ch; }
+
 /* ---------- Media figure ---------- */
 .figure {
   border-radius: var(--radius);
@@ -727,8 +761,15 @@ strong { font-weight: 700; color: var(--paper); }
   grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
   gap: clamp(28px, 4vw, 56px);
 }
-.footer-brand > img { height: 130px; margin-bottom: 18px; }
-.footer-brand p { color: var(--faint); max-width: 36ch; font-size: 13px; }
+.footer-brand {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  align-content: start;
+  gap: 18px;
+}
+.footer-brand > img { height: 170px; }
+.footer-brand p { color: var(--faint); max-width: 34ch; font-size: 13px; margin-inline: auto; }
 .footer h4 {
   font-family: var(--font-display);
   font-size: 10.5px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase;
@@ -741,11 +782,16 @@ strong { font-weight: 700; color: var(--paper); }
 .footer-offices .city { color: var(--paper); font-weight: 700; display: block; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; font-family: var(--font-display); }
 .footer-offices .addr { color: var(--faint); font-size: 12.5px; }
 .footer-cscc {
-  display: flex; align-items: center; gap: 18px;
-  margin-top: 26px;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  margin-top: 10px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line-soft);
+  width: 100%;
 }
-.footer-cscc img { height: 82px; width: auto; flex: none; filter: drop-shadow(0 4px 14px rgba(0,0,0,0.5)); }
-.footer-cscc p { color: var(--muted); font-size: 13px; line-height: 1.55; max-width: 30ch; }
+.footer-cscc img { height: 110px; width: auto; filter: drop-shadow(0 4px 14px rgba(0,0,0,0.5)); }
+.footer-cscc p { color: var(--muted); font-size: 13px; line-height: 1.55; max-width: 32ch; text-align: center; }
 .footer-bottom {
   margin-top: clamp(36px, 4.5vw, 56px);
   padding-top: 22px;
@@ -799,6 +845,9 @@ strong { font-weight: 700; color: var(--paper); }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 12px;
+}
+@media (min-width: 900px) {
+  .cats { grid-template-columns: repeat(3, minmax(0, 1fr)); } /* 9 industrias = 3×3 perfecto */
 }
 .cat {
   border: 1px solid var(--line-soft);
@@ -907,6 +956,18 @@ strong { font-weight: 700; color: var(--paper); }
 }
 .quote p { font-size: 14.5px; line-height: 1.6; color: var(--paper); font-weight: 400; }
 .quote p::before { content: "\201C"; color: var(--aqua); font-size: 1.5em; line-height: 0; margin-right: 3px; }
+.quote p::after { content: "\201D"; color: var(--aqua); font-size: 1.5em; line-height: 0; margin-left: 3px; vertical-align: -0.3em; }
+.flag {
+  display: inline-block;
+  width: 21px; height: 14px;
+  border-radius: 2.5px;
+  overflow: hidden;
+  vertical-align: -2px;
+  margin-left: 8px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.14);
+  flex: none;
+}
+.flag svg { display: block; width: 100%; height: 100%; }
 .quote-who { display: flex; align-items: center; gap: 12px; }
 .avatar {
   width: 42px; height: 42px; border-radius: 50%; flex: none;
