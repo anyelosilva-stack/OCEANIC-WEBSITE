@@ -349,7 +349,7 @@ strong { font-weight: 700; color: var(--paper); }
   min-height: 600px;
   overflow: hidden;
   display: flex;
-  align-items: center;
+  align-items: flex-end; /* el titular baja al agua: no tapa los edificios */
   justify-content: center;
 }
 .hero-media { position: absolute; inset: 0; }
@@ -358,18 +358,20 @@ strong { font-weight: 700; color: var(--paper); }
   content: "";
   position: absolute; inset: 0;
   background:
-    linear-gradient(180deg, rgba(5,7,8,0.5) 0%, rgba(5,7,8,0.06) 30%, rgba(5,7,8,0.06) 62%, var(--bg-0) 100%);
+    radial-gradient(56% 34% at 26% 84%, rgba(5, 7, 8, 0.5), transparent 70%),
+    linear-gradient(180deg, rgba(5,7,8,0.5) 0%, rgba(5,7,8,0.05) 30%, rgba(5,7,8,0.05) 56%, rgba(5,7,8,0.66) 82%, var(--bg-0) 100%);
 }
 
 .hero-content {
   position: relative; z-index: 2;
   width: min(var(--container), calc(100% - 48px));
   text-align: left;
+  margin-bottom: clamp(88px, 14vh, 150px); /* asentado sobre el agua, libre del hint */
 }
 .hero-content h1 {
   max-width: 15ch;
-  font-size: clamp(38px, 5.2vw, 72px);
-  text-shadow: 0 6px 40px rgba(5, 7, 8, 0.55);
+  font-size: clamp(36px, 4.8vw, 66px);
+  text-shadow: 0 2px 16px rgba(5, 7, 8, 0.85), 0 10px 46px rgba(5, 7, 8, 0.6);
 }
 
 /* ---------- Cita del Director Ejecutivo ---------- */
