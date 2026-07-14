@@ -169,21 +169,90 @@
     });
   }
 
-  /* ---------- Marquee: duplicar contenido ---------- */
-  document.querySelectorAll(".logo-track").forEach(function (track) {
-    track.innerHTML += track.innerHTML;
-  });
+  /* ---------- Muro de logos: carrusel interactivo ---------- */
+  document.querySelectorAll("[data-logo-wall]").forEach(function (wall) {
+    var viewport = wall.querySelector(".logo-viewport");
+    var track = wall.querySelector(".logo-track");
+    var prev = wall.querySelector(".logo-nav--prev");
+    var next = wall.querySelector(".logo-nav--next");
+    if (!viewport || !track) return;
 
-  /* Muro de logos: si un PNG no existe todavía, degradar al nombre en texto */
-  document.querySelectorAll(".logo-track img.logo-img").forEach(function (img) {
-    function fallback() {
-      var span = document.createElement("span");
-      span.className = "logo-item";
-      span.textContent = img.getAttribute("data-name") || (img.alt || "").replace(/^Logo de\s+/i, "");
-      if (img.parentNode) img.parentNode.replaceChild(span, img);
+    /* Duplicar el set para el bucle continuo */
+    track.innerHTML += track.innerHTML;
+
+    /* Respaldo: si un PNG no carga, degradar al nombre en texto */
+    track.querySelectorAll("img.logo-img").forEach(function (img) {
+      function fallback() {
+        var span = document.createElement("span");
+        span.className = "logo-item";
+        span.textContent = img.getAttribute("data-name") || (img.alt || "").replace(/^Logo de\s+/i, "");
+        if (img.parentNode) img.parentNode.replaceChild(span, img);
+      }
+      img.addEventListener("error", fallback);
+      if (img.complete && img.naturalWidth === 0) fallback();
+    });
+
+    var offset = 0, setW = 0, target = null;
+    var paused = false, dragging = false, startX = 0, startOffset = 0;
+    var AUTO = 0.35, STEP = 260;
+
+    function measure() { setW = track.scrollWidth / 2; }
+    measure();
+    window.addEventListener("resize", measure);
+    track.querySelectorAll("img").forEach(function (im) {
+      if (!im.complete) im.addEventListener("load", measure);
+    });
+
+    function frame() {
+      if (target !== null) {
+        var d = target - offset;
+        if (Math.abs(d) < 0.5) { offset = target; target = null; }
+        else offset += d * 0.16;
+      } else if (!paused && !dragging && !REDUCED) {
+        offset += AUTO;
+      }
+      if (setW > 0) {
+        if (offset >= setW) offset -= setW;
+        else if (offset < 0) offset += setW;
+      }
+      track.style.transform = "translateX(" + (-offset) + "px)";
+      requestAnimationFrame(frame);
     }
-    img.addEventListener("error", fallback);
-    if (img.complete && img.naturalWidth === 0) fallback();
+    requestAnimationFrame(frame);
+
+    function nudge(dir) { target = (target === null ? offset : target) + dir * STEP; }
+    if (prev) prev.addEventListener("click", function () { nudge(-1); });
+    if (next) next.addEventListener("click", function () { nudge(1); });
+
+    /* Pausar el auto al pasar el cursor (para leer con calma) */
+    wall.addEventListener("mouseenter", function () { paused = true; });
+    wall.addEventListener("mouseleave", function () { paused = false; });
+
+    /* Arrastrar con el mouse (en táctil: auto + flechas, sin bloquear el scroll vertical) */
+    viewport.addEventListener("pointerdown", function (e) {
+      if (e.pointerType === "touch") return;
+      dragging = true; target = null; startX = e.clientX; startOffset = offset;
+      viewport.classList.add("is-dragging");
+      try { viewport.setPointerCapture(e.pointerId); } catch (err) {}
+    });
+    viewport.addEventListener("pointermove", function (e) {
+      if (!dragging) return;
+      offset = startOffset - (e.clientX - startX);
+    });
+    function endDrag() {
+      if (!dragging) return;
+      dragging = false;
+      viewport.classList.remove("is-dragging");
+    }
+    viewport.addEventListener("pointerup", endDrag);
+    viewport.addEventListener("pointercancel", endDrag);
+
+    /* Rueda / trackpad horizontal */
+    viewport.addEventListener("wheel", function (e) {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        target = null; offset += e.deltaX; e.preventDefault();
+      }
+    }, { passive: false });
   });
 
   /* ---------- Año footer ---------- */
