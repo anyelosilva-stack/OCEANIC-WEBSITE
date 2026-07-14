@@ -1,0 +1,19 @@
+LOGOS DE CLIENTES — GRUPO OCEANIC
+=================================
+13 archivos .jpg · 800 x 440 px cada uno (2x → mostrar a 400x220)
+
+CONCEPTO: cada logo va sobre una TARJETA BLANCA del mismo tamaño.
+Esto es lo que hacía el sitio anterior y es lo que resuelve el problema:
+sobre fondo negro, los logos de tinta oscura (Éxito, Cheviotto, Miniso)
+eran invisibles. Sobre tarjeta blanca se leen todos.
+
+· Éxito conserva su caja amarilla con letras negras.
+· DHL conserva su amarillo de marca.
+· Cheviotto y Lindcorp tenían tipografía blanca sobre caja de color:
+  se recolorearon al color de marca sobre blanco.
+· La tinta llena casi toda la tarjeta — ningún logo se ve pequeño.
+
+Van en: assets/img/   (raíz)
+aruma.jpg  cheviotto.jpg  dhl.jpg  dolex.jpg  exito.jpg  fenissa.jpg
+lindcorp.jpg  los-3-elefantes.jpg  miniso.jpg  protechcol.jpg
+sts.jpg  surtitodo.jpg  tambo.jpg

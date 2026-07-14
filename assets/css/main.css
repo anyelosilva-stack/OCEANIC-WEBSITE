@@ -704,7 +704,7 @@ strong { font-weight: 700; color: var(--paper); }
 .logo-viewport {
   flex: 1; min-width: 0;
   overflow: hidden;
-  padding-block: 34px;
+  padding-block: clamp(46px, 5vw, 66px); /* espacio para el scale 1.08 + sombra */
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
   cursor: grab;
@@ -712,14 +712,14 @@ strong { font-weight: 700; color: var(--paper); }
 }
 .logo-viewport.is-dragging { cursor: grabbing; }
 .logo-track {
-  display: flex; align-items: center; gap: clamp(44px, 6vw, 88px);
+  display: flex; align-items: center; gap: 24px;
   width: max-content;
   will-change: transform;
   user-select: none; -webkit-user-select: none;
 }
 .logo-nav {
   position: absolute; top: 50%; transform: translateY(-50%);
-  z-index: 3;
+  z-index: 5; /* siempre por encima de la tarjeta en hover (z-index 3) */
   width: 46px; height: 46px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   background: rgba(5, 7, 8, 0.62);
@@ -748,19 +748,35 @@ strong { font-weight: 700; color: var(--paper); }
   transition: color var(--dur);
 }
 .logo-item:hover { color: var(--paper); }
-/* Logos sobre fondo OSCURO: silueta clara uniforme en reposo (todos con el
-   mismo peso visual, ninguno desaparece) → color real al pasar el cursor.
-   brightness(0)+invert(1) aplana cualquier logo a silueta blanca por su alfa,
-   así protechcol (amarillo) y sts (verde claro) pesan igual que el resto.
-   Requiere PNG a COLOR para que el hover revele el color. */
-.logo-img {
-  height: 36px; width: auto; object-fit: contain;
-  filter: grayscale(1) brightness(0) invert(1);
-  opacity: 0.5;
-  transition: opacity var(--dur) var(--ease-out), filter var(--dur) var(--ease-out);
+/* Tarjetas de logos (JPG blanco opaco 800x440): todas del mismo tamaño.
+   Reposo: gris atenuado. Hover: color real + realce (escala + sombra). */
+.logo-card {
+  flex: none;
+  position: relative;
+  width: 260px; height: 143px;   /* proporción 800:440 */
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  filter: grayscale(1);
+  opacity: 0.62;
+  transform: scale(1);
+  transition: filter .3s ease, opacity .3s ease, transform .3s ease, box-shadow .3s ease;
 }
-.logo-img:hover { filter: none; opacity: 1; }
-@media (max-width: 640px) { .logo-img { height: 28px; } }
+.logo-card img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.logo-card:hover {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  z-index: 3;
+}
+/* Respaldo en texto centrado dentro de la tarjeta (si un JPG faltara) */
+.logo-card .logo-item {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 100%; text-align: center; padding: 0 12px;
+}
+@media (max-width: 900px) { .logo-card { width: 220px; height: 121px; } }
+@media (max-width: 640px) { .logo-card { width: 170px; height: 94px; } }
 
 /* ---------- Bandas de imagen ---------- */
 .img-band {
@@ -1205,4 +1221,5 @@ html.no-motion .reveal, html.no-motion .reveal-l, html.no-motion .reveal-r {
   }
   .route-divider::after { animation: none; opacity: 0; }
   .hero-hint { animation: none; }
+  .logo-card, .logo-card:hover { transform: none; } /* color sí, movimiento no */
 }
