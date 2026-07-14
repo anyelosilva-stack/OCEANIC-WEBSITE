@@ -1,0 +1,47 @@
+LOGOS DE CLIENTES — GRUPO OCEANIC
+=================================
+
+13 logos procesados: fondo transparente, recortados, normalizados
+y escalados con equilibrio óptico (nadie se ve más grande de la cuenta).
+
+Formato: PNG-24 con canal alfa · lienzo 600x240 px (2x retina → mostrar a 300x120)
+
+CARPETAS
+--------
+1-monocromo-oscuro/    ← RECOMENDADA. Todos en gris pizarra #4A505A.
+                          Es el estándar de los muros de logos corporativos
+                          (es lo que hace LeftClick). Ningún logo compite con
+                          otro, todo se ve limpio y del mismo peso visual.
+
+2-monocromo-blanco/    Los mismos en blanco. Para secciones oscuras o footer.
+
+3-color-transparente/  Colores originales de marca, sin fondo.
+                          Úsala solo si el jefe insiste en el color.
+                          Advertencia: 13 paletas distintas peleando en una
+                          misma fila se ve desordenado y le resta seriedad.
+
+ARCHIVOS
+--------
+aruma · cheviotto · dhl · dolex · exito · fenissa · lindcorp
+los-3-elefantes · miniso · protechcol · sts · surtitodo · tambo
+
+NOTAS
+-----
+· Cheviotto y Lindcorp tenían tipografía blanca sobre caja de color.
+  En la versión a color se recolorearon al color de marca para que
+  sean visibles sobre fondo claro.
+· Éxito, DHL, Tambo y Surtitodo perdieron su caja de fondo: en el
+  muro de logos es lo correcto.
+
+SUGERENCIA DE USO (CSS)
+-----------------------
+.logo-wall img {
+  height: 34px;
+  width: auto;
+  opacity: .55;
+  filter: grayscale(1);
+  transition: opacity .25s ease;
+}
+.logo-wall img:hover { opacity: 1; }
+
+Con el set monocromo NO necesitas grayscale(); solo juega con opacity.

@@ -174,6 +174,18 @@
     track.innerHTML += track.innerHTML;
   });
 
+  /* Muro de logos: si un PNG no existe todavía, degradar al nombre en texto */
+  document.querySelectorAll(".logo-track img.logo-img").forEach(function (img) {
+    function fallback() {
+      var span = document.createElement("span");
+      span.className = "logo-item";
+      span.textContent = img.getAttribute("data-name") || (img.alt || "").replace(/^Logo de\s+/i, "");
+      if (img.parentNode) img.parentNode.replaceChild(span, img);
+    }
+    img.addEventListener("error", fallback);
+    if (img.complete && img.naturalWidth === 0) fallback();
+  });
+
   /* ---------- Año footer ---------- */
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();

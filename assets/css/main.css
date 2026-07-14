@@ -577,6 +577,16 @@ strong { font-weight: 700; color: var(--paper); }
   max-width: 24ch;
 }
 
+/* KPIs como banda protagonista (primer scroll tras el hero): más presencia */
+.stats-section { padding-block: clamp(30px, 5vw, 68px); }
+.stats-feature .stat { padding-block: clamp(38px, 5vw, 62px); }
+.stats-feature .stat-num { font-size: clamp(36px, 4.8vw, 60px); }
+.stats-feature .stat-label { font-size: 13.5px; margin-top: 14px; }
+@media (max-width: 640px) {
+  .stats-feature .stat-num { font-size: 30px; }
+  .stats-feature .stat { padding-block: 30px; }
+}
+
 /* ---------- Tarjetas pilares ---------- */
 .pillars {
   display: grid;
@@ -693,7 +703,7 @@ strong { font-weight: 700; color: var(--paper); }
   padding-block: 34px;
 }
 .logo-track {
-  display: flex; gap: clamp(44px, 6vw, 88px);
+  display: flex; align-items: center; gap: clamp(44px, 6vw, 88px);
   width: max-content;
   animation: marquee 46s linear infinite;
 }
@@ -709,6 +719,19 @@ strong { font-weight: 700; color: var(--paper); }
   transition: color var(--dur);
 }
 .logo-item:hover { color: var(--paper); }
+/* Logos sobre fondo OSCURO: silueta clara uniforme en reposo (todos con el
+   mismo peso visual, ninguno desaparece) → color real al pasar el cursor.
+   brightness(0)+invert(1) aplana cualquier logo a silueta blanca por su alfa,
+   así protechcol (amarillo) y sts (verde claro) pesan igual que el resto.
+   Requiere PNG a COLOR para que el hover revele el color. */
+.logo-img {
+  height: 36px; width: auto; object-fit: contain;
+  filter: grayscale(1) brightness(0) invert(1);
+  opacity: 0.5;
+  transition: opacity var(--dur) var(--ease-out), filter var(--dur) var(--ease-out);
+}
+.logo-img:hover { filter: none; opacity: 1; }
+@media (max-width: 640px) { .logo-img { height: 28px; } }
 
 /* ---------- Bandas de imagen ---------- */
 .img-band {
