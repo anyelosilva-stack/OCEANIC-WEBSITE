@@ -4,6 +4,7 @@
 
 # Material de referencia y fuentes 4K pesadas (la web usa los .webp optimizados)
 assets/img/new images/
+assets/galeria de fotos/
 assets/img/gen/*.png
 !assets/img/gen/sala-de-juntas.png
 
